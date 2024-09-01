@@ -47,7 +47,17 @@ public class BankAccountGUI {
             balanceLabel.setText("Balance: $" + balance);
         });
         //action listener for addfunds button
+        addFundsButton.addActionListener((ActionEvent e) -> {
+            String input = JOptionPane.showInputDialog("Enter amount of funds to add:");
+            balance += Double.parseDouble(input);
+            balanceLabel.setText("Balance: $" + balance);
+        });
         //action listener for withdraw funds button
+        withdrawFundsButton.addActionListener((ActionEvent e) -> {
+            String input = JOptionPane.showInputDialog("Enter amount of funds to add:");
+            balance -= Double.parseDouble(input);
+            balanceLabel.setText("Balance: $" + balance);
+        });
         //add panel to frame and set visible
         frame.add(panel);
         frame.setVisible(true);
