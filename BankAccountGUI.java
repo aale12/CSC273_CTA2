@@ -54,7 +54,7 @@ public class BankAccountGUI {
         });
         //action listener for withdraw funds button
         withdrawFundsButton.addActionListener((ActionEvent e) -> {
-            String input = JOptionPane.showInputDialog("Enter amount of funds to add:");
+            String input = JOptionPane.showInputDialog("Enter amount of funds to withdraw:");
             balance -= Double.parseDouble(input);
             balanceLabel.setText("Balance: $" + balance);
         });
