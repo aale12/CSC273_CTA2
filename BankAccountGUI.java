@@ -9,31 +9,46 @@ public class BankAccountGUI {
     private JFrame frame;
     private JPanel panel;
     private JLabel balanceLabel;
-    private final double balance = 0.0;
+    private double balance = 0.0;
 
     public BankAccountGUI() {
+        //init frame
         frame = new JFrame("Account Balance");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 200);
-
+        frame.setSize(1000, 250);
+        //init panel and layout
         panel = new JPanel();
-        panel.setLayout(new GridLayout(4, 2));
-
+        panel.setLayout(new GridLayout(2, 2));
         balanceLabel = new JLabel("Balance: ");
         panel.add(balanceLabel);
+
+        //create buttons
+        JButton enterBalanceButton = new JButton("Enter Balance");
         JButton getBalanceButton = new JButton("Get Balance");
         JButton addFundsButton = new JButton("Add Funds");
         JButton withdrawFundsButton = new JButton("Withdraw Funds");
 
-        panel.add(new JLabel());
+        //add buttons to panel
+        panel.add(enterBalanceButton);
         panel.add(getBalanceButton);
+        //spacing
+        panel.add(new JLabel());
         panel.add(addFundsButton);
         panel.add(withdrawFundsButton);
 
+        //action listener for set balance button
+        enterBalanceButton.addActionListener((ActionEvent e) -> {
+            String input = JOptionPane.showInputDialog("Enter your balance:");
+            balance = Double.parseDouble(input);
+            balanceLabel.setText("Balance: $" + balance);
+        });
+        //action listener for get balance button
         getBalanceButton.addActionListener((ActionEvent e) -> {
             balanceLabel.setText("Balance: $" + balance);
         });
-
+        //action listener for addfunds button
+        //action listener for withdraw funds button
+        //add panel to frame and set visible
         frame.add(panel);
         frame.setVisible(true);
     }
